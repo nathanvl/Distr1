@@ -56,6 +56,18 @@ public class Car {
         reservations.add(res);
     }
     
+    public List<Reservation> reservationsBy(String clientName){
+    	List<Reservation> clientReservations;
+    	for (Reservation reservation : reservations){
+    		if(reservation.getCarRenter() == clientName){
+    			clientReservations.add(reservation);
+    		}
+    		
+    	}
+    	
+    }
+    
+    
     public void removeReservation(Reservation reservation) {
         // equals-method for Reservation is required!
         reservations.remove(reservation);

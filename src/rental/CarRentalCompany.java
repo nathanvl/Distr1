@@ -163,6 +163,14 @@ public class CarRentalCompany implements ICarRentalCompany {
 		getCar(res.getCarId()).removeReservation(res);
 	}
 	
+	public List<Reservation> getReservationsByRenter(String clientName) throws Exception {
+		List<Reservation> reservationList;
+		for(Car car:cars){
+			reservationList.add(car.reservationsBy(clientName));
+		}
+		return reservationList;
+	}
+	
 	public int getNumberOfReservationsForCarType(String carType) {
 		int count = 0;
 		CarType type = carTypes.get(carType);

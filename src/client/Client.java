@@ -123,8 +123,7 @@ public class Client extends AbstractTestBooking {
 	 */
 	@Override
 	protected List<Reservation> getReservationsByRenter(String clientName) throws Exception {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("TODO5");
+		return crc.getReservationsByRenter(clientName);
 	}
 
 	/**
