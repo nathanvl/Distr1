@@ -179,7 +179,6 @@ public class CarRentalCompany implements ICarRentalCompany {
 				count += car.getNumberOfReservations();
 			}
 		}
-		
 		return count;
 	}
 	
