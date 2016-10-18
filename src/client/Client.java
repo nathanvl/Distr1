@@ -21,6 +21,7 @@ public class Client extends AbstractTestBooking {
 	 ********/
 	
 	public static void main(String[] args) throws Exception {
+		Thread.sleep(1000);
 		System.setSecurityManager(null);
 		String carRentalCompanyName = "Hertz";
 		
