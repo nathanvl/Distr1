@@ -14,7 +14,7 @@ public class RentalServer {
 	
 	public static void main(String[] args) throws ReservationException,
 			NumberFormatException, IOException, InterruptedException {
-		Thread.sleep(1000);
+		Thread.sleep(1000); //Sleep to be sure registry is online
 		System.setSecurityManager(null);
 		CrcData data  = loadData("hertz.csv");
 		CarRentalCompany crc = new CarRentalCompany(data.name, data.regions, data.cars);

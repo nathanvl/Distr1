@@ -1,6 +1,6 @@
 package rental;
 
-import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
@@ -163,10 +163,10 @@ public class CarRentalCompany implements ICarRentalCompany {
 		getCar(res.getCarId()).removeReservation(res);
 	}
 	
-	public List<Reservation> getReservationsByRenter(String clientName) throws Exception {
-		List<Reservation> reservationList;
+	public List<Reservation> getReservationsByRenter(String clientName) {
+		List<Reservation> reservationList = new ArrayList<Reservation>();
 		for(Car car:cars){
-			reservationList.add(car.reservationsBy(clientName));
+			reservationList.addAll(car.reservationsBy(clientName));
 		}
 		return reservationList;
 	}

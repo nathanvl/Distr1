@@ -21,7 +21,7 @@ public class Client extends AbstractTestBooking {
 	 ********/
 	
 	public static void main(String[] args) throws Exception {
-		Thread.sleep(1000);
+		Thread.sleep(1000); //Sleep to be sure registry is online.
 		System.setSecurityManager(null);
 		String carRentalCompanyName = "Hertz";
 		

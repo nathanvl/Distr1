@@ -57,14 +57,13 @@ public class Car {
     }
     
     public List<Reservation> reservationsBy(String clientName){
-    	List<Reservation> clientReservations;
+    	List<Reservation> clientReservations = new ArrayList<Reservation>();
     	for (Reservation reservation : reservations){
     		if(reservation.getCarRenter() == clientName){
     			clientReservations.add(reservation);
     		}
-    		
     	}
-    	
+    	return clientReservations;
     }
     
     

@@ -21,4 +21,5 @@ public interface ICarRentalCompany extends Remote {
 
 	public int getNumberOfReservationsForCarType(String carType) throws RemoteException;
 	
+	public List<Reservation> getReservationsByRenter(String clientName) throws RemoteException;
 }
