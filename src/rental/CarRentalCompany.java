@@ -163,6 +163,18 @@ public class CarRentalCompany implements ICarRentalCompany {
 		getCar(res.getCarId()).removeReservation(res);
 	}
 	
+	public int getNumberOfReservationsForCarType(String carType) {
+		int count = 0;
+		CarType type = carTypes.get(carType);
+		for (Car car:cars) {
+			if (car.getType() == type) {
+				count += car.getNumberOfReservations();
+			}
+		}
+		
+		return count;
+	}
+	
 	@Override
 	public String toString() {
 		return String.format("<%s> CRC is active in regions %s and serving with %d car types", name, listToString(regions), carTypes.size());

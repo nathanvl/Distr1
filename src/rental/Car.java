@@ -60,4 +60,8 @@ public class Car {
         // equals-method for Reservation is required!
         reservations.remove(reservation);
     }
+    
+    public int getNumberOfReservations() {
+    	return reservations.size();
+    }
 }

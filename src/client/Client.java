@@ -138,7 +138,6 @@ public class Client extends AbstractTestBooking {
 	 */
 	@Override
 	protected int getNumberOfReservationsForCarType(String carType) throws Exception {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("TODO6");
+		return crc.getNumberOfReservationsForCarType(carType);
 	}
 }
