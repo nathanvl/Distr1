@@ -7,8 +7,8 @@ import java.rmi.registry.Registry;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
-import java.util.Arrays;
 
+import rental.CarType;
 import rental.ICarRentalCompany;
 import rental.Quote;
 import rental.Reservation;
@@ -44,13 +44,12 @@ public class Client extends AbstractTestBooking {
 			registry = LocateRegistry.getRegistry("localhost", 1099);
 			crc = (ICarRentalCompany) registry.lookup(carRentalCompanyName);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (NotBoundException e) {
-			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		//		throw new UnsupportedOperationException("TODO1");
 	}
 	
 	/**
@@ -66,7 +65,10 @@ public class Client extends AbstractTestBooking {
 	 */
 	@Override
 	protected void checkForAvailableCarTypes(Date start, Date end) throws Exception {
-		System.out.println(Arrays.toString(crc.getAvailableCarTypes(start, end).toArray()));
+		Set<CarType> cars = crc.getAvailableCarTypes(start, end);
+		for (CarType type: cars) {
+			System.out.println(type);
+		}
 	}
 
 	/**
@@ -123,7 +125,11 @@ public class Client extends AbstractTestBooking {
 	 */
 	@Override
 	protected List<Reservation> getReservationsByRenter(String clientName) throws Exception {
-		return crc.getReservationsByRenter(clientName);
+		List<Reservation> reservations = crc.getReservationsByRenter(clientName);
+		for(int i = 0; i < reservations.size(); i++) {
+			System.out.println(reservations.get(i));
+		}
+		return reservations;
 	}
 
 	/**
