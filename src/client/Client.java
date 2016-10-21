@@ -41,6 +41,7 @@ public class Client extends AbstractTestBooking {
 		
 		Registry registry;
 		try {
+			//Try to locate the registry
 			registry = LocateRegistry.getRegistry("localhost", 1099);
 			crc = (ICarRentalCompany) registry.lookup(carRentalCompanyName);
 		} catch (RemoteException e) {
@@ -66,6 +67,7 @@ public class Client extends AbstractTestBooking {
 	@Override
 	protected void checkForAvailableCarTypes(Date start, Date end) throws Exception {
 		Set<CarType> cars = crc.getAvailableCarTypes(start, end);
+		//Print every car type on a separate line 
 		for (CarType type: cars) {
 			System.out.println(type);
 		}
@@ -92,6 +94,7 @@ public class Client extends AbstractTestBooking {
 	@Override
 	protected Quote createQuote(String clientName, Date start, Date end,
 			String carType, String region) throws Exception {
+		//First create reservation constraints then create quote.
 		ReservationConstraints con = new ReservationConstraints(start, end, carType, region);
 		Quote q = crc.createQuote(con, clientName);
 		return q;
@@ -109,8 +112,7 @@ public class Client extends AbstractTestBooking {
 	 */
 	@Override
 	protected Reservation confirmQuote(Quote quote) throws Exception {
-		Reservation r = crc.confirmQuote(quote);
-		return r;
+		return crc.confirmQuote(quote);
 	}
 	
 	/**
@@ -126,6 +128,7 @@ public class Client extends AbstractTestBooking {
 	@Override
 	protected List<Reservation> getReservationsByRenter(String clientName) throws Exception {
 		List<Reservation> reservations = crc.getReservationsByRenter(clientName);
+		//Also print every reservation
 		for(int i = 0; i < reservations.size(); i++) {
 			System.out.println(reservations.get(i));
 		}

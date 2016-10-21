@@ -163,6 +163,7 @@ public class CarRentalCompany implements ICarRentalCompany {
 		getCar(res.getCarId()).removeReservation(res);
 	}
 	
+	// List all the reservations made by a given renter.
 	public List<Reservation> getReservationsByRenter(String clientName) {
 		List<Reservation> reservationList = new ArrayList<Reservation>();
 		for(Car car:cars){
@@ -171,6 +172,7 @@ public class CarRentalCompany implements ICarRentalCompany {
 		return reservationList;
 	}
 	
+	// Determine the number of reservations for a car type.
 	public int getNumberOfReservationsForCarType(String carType) {
 		int count = 0;
 		CarType type = carTypes.get(carType);
